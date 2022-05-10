@@ -1,0 +1,18 @@
+.value__container-mm{
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border: 1px solid var(--color-primary-variant);
+    border-radius: 30px;
+    font-size: 20px;
+}
+
+.value__container-mm:hover{
+    background: var(--color-white);
+    color: var(--color-bg);
+    border-color: transparent;
+}
+input{
+    background: transparent;
+    font-size: 20px;
+
+}
