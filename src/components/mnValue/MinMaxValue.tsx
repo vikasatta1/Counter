@@ -1,34 +1,27 @@
-import React, {useState} from 'react';
+import React, {ChangeEvent} from 'react';
 import Button from "../button/Button";
 import './minMaxValue.css'
 
-const MinMaxValue = () => {
-    /* если стартовое значение меньше нуля - подчеркнуть инпут красныс в экране счетчика incorrect value!
-    *  если макс значение === стартовому тоже самое
-    *
-    * */
-    let [maxValue,setMaxValue] = useState<number>(0)
-    let [minValue,setMinValue] = useState<number>(0)
-    console.log(minValue)
-    const onChangeMax = (e:any) => {
-        setMaxValue(e.currentTarget.value)
-    }
-    const onChangeMin = (e:any) => {
-        setMinValue(e.currentTarget.value)
-    }
-    const setHandler = () => {
+type MinMaxPropsType = {
+    maxValue: any,
+    minValue: any
+    onChangeMax: (e:ChangeEvent<HTMLInputElement>) => void,
+    onChangeMin: (e:ChangeEvent<HTMLInputElement>) => void,
+    setHandler: () => void,
+    functionSet:()=> void
+}
+const MinMaxValue = (props: MinMaxPropsType) => {
 
-    }
 
     return (
         <div className={'counter__box'}>
             <div className={'value__container-mm'}>
-                maxValue:   <input value={maxValue} onChange={onChangeMax}/>
+                maxValue: <input value={props.maxValue} onChange={props.onChangeMax}/>
             </div>
             <div className={'value__container-mm'}>
-               minValue:   <input value={minValue} onChange={onChangeMin}/></div>
+                minValue: <input value={props.minValue} onChange={props.onChangeMin}/></div>
             <div>
-                <Button name={'set'} onClick={setHandler}/>
+                <Button name={'set'} onClick={props.functionSet}/>
 
             </div>
         </div>
